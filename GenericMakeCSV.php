@@ -5,12 +5,12 @@ echo "<h1>Thanks for your submission</h1> <br>";
 echo "<h2>All updates are processed at the end of the day.</h2><br>";
 echo "<h3>Updates submitted after 5:00 PM Eastern Time will be process the following day.</h3><br>";
 $fileName="Test_Visitor_Records.csv";
-$path ="./" . $fileName;
+$path = $fileName;
 echo("The Form Name is [" . $_POST['formName'] . "]");
 echo("The Path is [" . $path . "]");
 
 $theFile = $path; //just plop it in the same folder for now
-//echo "The CSV file is ".$theFile;
+echo "The CSV file is ".$theFile;
 
 $specialColumns = array(
     "pubDate" => "Publish On",
