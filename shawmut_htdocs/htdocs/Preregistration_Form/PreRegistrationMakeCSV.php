@@ -1,12 +1,12 @@
 <?php
-header("Refresh:10; url=../signin/index.html");
+header("Refresh:10; url=index.html");
 
 $date=date("Ymd");
-$firstName=$_POST['First_Name'];
+$fullName = $_POST['First_Name']." ".$_POST['Last_Name'];
 echo '<body bgcolor="#5d5597">';
-echo "<br><br><br><br><font color='gray'><h1 align=center>Thanks for signing in ".$firstName."!</h1></font> <br>";
-$fileName="Preregistered_Visitor_Data.csv";
-$path ="../Display_PreRegistered_Visitors" . $fileName;
+echo "<br><br><br><br><font color='gray'><h1 align=center>You have Pre-Registered ".$fullName."!</h1></font> <br> <button align=center onclick=\"window.location.href='index.html'\">Go Back</button>";
+$fileName="PreRegistered_Visitor_Data.csv";
+$path ="../Display_PreRegistered_Visitors/" . $fileName;
 //echo("The Form Name is [" . $_POST['formName'] . "]");
 //echo("The Path is [" . $path . "]");
 
