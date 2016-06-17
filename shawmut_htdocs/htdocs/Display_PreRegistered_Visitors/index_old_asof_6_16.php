@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a href="../signin/index.html"><img src="img/shawmut-logo.png" alt="Shawmut" max-height="100%" max-width="100%"></a>
-                    <!-- <h1 class="page-header">Welcome<small>...............please sign in</small></h1> -->
+                    <h1 class="page-header">Pre-Registered visitors</h1>
 				</div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -64,8 +64,8 @@
                         <div class="panel-body panel-shawmut">
                             <div class="row">
                                 <div class="col-lg-6">
-                                <table>
-                                <thead> Pre-Registered Visitors </thead>
+                                <table border="1">
+                                <thead> If you have been Pre-Registered, please click on your entry. <!-- Pre-Registered Visitors --> </thead>
                                 <?php 
                                 $path = "PreRegistered_Visitor_Data.csv";
 								$pointer = fopen($path, 'r');
@@ -82,12 +82,14 @@
 									//echo "[".implode("|", $items)."] <br>";
 									$count = 0; //debug
 									
+									$rowString = "";
 									reset($items);
-									foreach ($items as $item); {
+									foreach ($items as $item) {
 										//echo "<td>" . $item ." (no. ". $count . ")</td>";
-										echo "<td>" . $items[$count] ." (no. ". $count . ")</td>\n";
+										$rowString .= "<td>" . $item . "</td>\n";
 										$count += 1;
 									}
+									echo $rowString;
 									
 									echo "</tr>\n";
   								}
@@ -129,8 +131,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <button></button>
-                    <button></button>
+                    <button onclick="window.location.href='../Front_Desk_Check_In'" style="color:black">I'm not in this list</button>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
