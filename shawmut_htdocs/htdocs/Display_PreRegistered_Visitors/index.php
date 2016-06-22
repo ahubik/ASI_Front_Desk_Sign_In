@@ -34,10 +34,22 @@
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!-- [if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+     <![endif] -->
+    
+    <script src='../jquery-3.0.0.min.js'></script>
+    <script>
+    //alert('The event handler assginment script runs test how alerts deal with long strings aaaadsfasdfsdfasaaaaaaaaaaaaaaaaaaaaaa');
+    jQuery(document).ready(function($) {
+    	alert('Jquery statements work');
+        $(".clickable-element").click(function() {
+            alert('a click was registered, href=' + $(this).data("href"));
+            window.document.location = $(this).data("href");
+        });
+    });
+    </script>
 
 </head>
 
@@ -67,16 +79,27 @@
                                 <table border="1">
                                 <thead> If you have been Pre-Registered, please click on your entry. <!-- Pre-Registered Visitors --> </thead>
                                 <?php 
+                                
                                 $path = "PreRegistered_Visitor_Data.csv";
 								$pointer = fopen($path, 'r');
 								
 								//echo "<br>"; //Debugging
-    		
+								
+								$keys = "";
+								$firstLine = True;
 								while(!feof($pointer))
   								{
 									$line = fgets($pointer);
+									$clickableString = "";//only populated for lines other than ther header (so that including it in the header generation just concats an empty string to it.
 									
-									echo "<tr>\n";
+									if ($firstLine) { //If it's the column titles
+										$keys = $line;//save them as the keys
+										$firstLine = False;//and indicate that we've processes the firstline
+									} else {//otherwise it's a data row
+										$clickableString = " class='clickable-element' data-href='RecordVisitor.php?data=".urlencode($line)."&keys=".urlencode($keys)."'";//so add code to make them clickable
+									}
+									echo "<tr" . $clickableString . ">\n";
+									//echo "<a href='RecordVisitor.php'>";//Ineffective
 									
 									$items = explode(',', $line);
 									//echo "[".implode("|", $items)."] <br>";
@@ -91,6 +114,7 @@
 									}
 									echo $rowString;
 									
+									//echo "</a>";
 									echo "</tr>\n";
   								}
   								
@@ -108,7 +132,6 @@
 								var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
 								var monthNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
 								var now = new Date();
-
 								var theYear = now.getFullYear();
 								var theMonth = (now.getMonth()+1)%12;
 								var theDay = now.getDay();
@@ -143,17 +166,23 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!--     <script src="../bower_components/jquery/dist/jquery.min.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!--     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script> -->
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+<!--     <script src="../dist/js/sb-admin-2.js"></script> -->
+<!-- This stuff is commented because the source as I (Alexander Hubik) recieved it does not contain the files referenced -->
 
 </body>
 
 </html>
+
+    Status API Training Shop Blog About 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
+

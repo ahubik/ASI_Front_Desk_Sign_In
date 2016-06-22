@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.php.debug.core.launching.webPageLaunch">
+<booleanAttribute key="auto_generated_url" value="false"/>
+<stringAttribute key="base_url" value="http://localhost/http://localhost/front_desk_check_in/shawmut_htdocs/htdocs/Display_PreRegistered_Visitors/RecordVisitor.php?data=Check_In_Test%2CTest%2Cfor+completeness%2C%2C%2C%2C%2C%2C%2C20160613%0A&amp;keys=formName%2CFirst+Name%2CLast+Name%2CCompany%2CCompany+Address%2CEmail%2CPhone%2CSignature%2CImage+Path%2CDate%0A"/>
+<stringAttribute key="debugPages" value="debugAllPages"/>
+<stringAttribute key="file_name" value=""/>
+<booleanAttribute key="firstLineBreakpoint" value="true"/>
+<stringAttribute key="name" value="Default PHP Web Server"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+</listAttribute>
+<booleanAttribute key="org.eclipse.php.debug.core.OpenInBrowser" value="true"/>
+<booleanAttribute key="org.eclipse.php.debug.core.RunWithDebugInfo" value="true"/>
+<stringAttribute key="org.eclipse.php.debug.core.SSHTunnelPassword" value=""/>
+<stringAttribute key="org.eclipse.php.debug.core.SSHTunnelUserName" value=""/>
+<booleanAttribute key="org.eclipse.php.debug.core.UseSSHTunnel" value="false"/>
+<stringAttribute key="org.eclipse.php.debug.corephp_debugger_id" value="org.eclipse.php.debug.core.xdebugDebugger"/>
+</launchConfiguration>

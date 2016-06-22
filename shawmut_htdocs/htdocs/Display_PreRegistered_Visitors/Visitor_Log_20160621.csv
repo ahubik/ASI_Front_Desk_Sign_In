@@ -1,0 +1,14 @@
+0,Date
+><td></td></a></tr>                                </table>                                                 </div>                                <div class="col-lg-1">                                </div>                                <div class="col-lg-5">                                                                                                  <!-- <SCRIPT LANGUAGE="Javascript">var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");var monthNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");var now = new Date();var theYear = now.getFullYear();var theMonth = (now.getMonth() 1);var theDay = now.getDay();var theDate = now.getDate();var theHour = now.getHours();var theAMPM = "AM";if(theHour>11) theAMPM = "PM";theHour = theHour;if(theHour==0){theHour=12;}var theMinute = now.getMinutes();if(theMinute<10) theMinute = "0"   theMinute;document.write("<h1><center>"   dayNames[now.getDay()]    "</center></h1><hr><h2><center>"   theMonth   "/"   theDate   "/"   theYear   "   "   theHour   ":"   theMinute   " "   theAMPM   "</h2></center>");</SCRIPT> -->                                                                                               </div>                            </div>                            <!-- /.row (nested) -->                        </div>                        <!-- /.panel-body -->                    </div>                    <!-- /.panel -->                    <button onclick="window.location.href=,Check_In_Test,Test,for completeness,,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,,20160613
+,Check_In_Test,test,for evenness,,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,,20160613
+,formName,First Name,Last Name,Company,Company Address,Email,Phone,Signature,Image Path,Date
+,C,h,e,I,k,_,n,_,T,C,h,e,I,k,_,n,_,T,C,h,e,I,k,_,n,_,T,Check_In_Test,Test,for completeness,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,20160613
+,Check_In_Test,Test,for completeness,,,,,,20160613
+,
