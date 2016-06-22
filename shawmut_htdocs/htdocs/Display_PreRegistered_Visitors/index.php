@@ -43,15 +43,14 @@
     <script>
     //alert('The event handler assginment script runs test how alerts deal with long strings aaaadsfasdfsdfasaaaaaaaaaaaaaaaaaaaaaa');
     jQuery(document).ready(function($) {
-    	alert('Jquery statements work');
+    	//alert('Jquery statements work');
         $(".clickable-element").click(function() {
-            alert('a click was registered, href=' + $(this).data("href"));
+            //alert('a click was registered, href=' + $(this).data("href"));
             window.document.location = $(this).data("href");
         });
     });
     </script>
-
-</head>
+  </head>
 
 <body>
 <style type="text/css">
@@ -62,68 +61,102 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a href="../signin/index.html"><img src="img/shawmut-logo.png" alt="Shawmut" max-height="100%" max-width="100%"></a>
-                    <h1 class="page-header">Pre-Registered visitors</h1>
+                    <!-- h1 class="page-header">Pre-Registered visitors</h1>-->
 				</div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <br><br><br>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12"></div>
                     <div class="panel panel-shawmut" style="border:none">
 <!--                         <div class="panel-heading"> -->
 <!--                         </div> -->
                         <div class="panel-body panel-shawmut" style="border:none">
                             <div class="row">
-                                <div class="col-lg-6" style="border:none">
-                                <table border="1">
-                                <thead> If you have been Pre-Registered, please click on your entry. <!-- Pre-Registered Visitors --> </thead>
-                                <?php 
-                                
-                                $path = "PreRegistered_Visitor_Data.csv";
-								$pointer = fopen($path, 'r');
-								
-								//echo "<br>"; //Debugging
-								
-								$keys = "";
-								$firstLine = True;
-								while(!feof($pointer))
-  								{
-									$line = fgets($pointer);
-									$clickableString = "";//only populated for lines other than ther header (so that including it in the header generation just concats an empty string to it.
+                            	<div class="col-lg-1"></div>
+                                <div class="col-lg-5" style="border:none; width=100%">
+		                        	<div class="lightBG center-block infoBox">
+		                            	Preregistered guests please click your name to sign in.  If your name is not on the list, please click on the "Register" button to the right.
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-1"></div>
+		                        <div class="col-lg-5" style="border:none;">
+		                        
+	                                <div class="round-button pull-left">
+		                                <div class="round-button-circle">
+			                                <a href="../Front_Desk_Check_In" class="round-button">Register</a>
+		                                </div>
+	                                </div>
+	                                
+	                             </div>
+	                         </div>
+	                         <div class="row">
+	                         	<div class="col-lg-12 center-block">
+	                                <table>
+	                                <thead> <!-- /thead-->
+	                                <?php 
+	                                
+	                                $path = "PreRegistered_Visitor_Data.csv";
+									$pointer = fopen($path, 'r');
 									
-									if ($firstLine) { //If it's the column titles
-										$keys = $line;//save them as the keys
-										$firstLine = False;//and indicate that we've processes the firstline
-									} else {//otherwise it's a data row
-										$clickableString = " class='clickable-element' data-href='RecordVisitor.php?data=".urlencode($line)."&keys=".urlencode($keys)."'";//so add code to make them clickable
-									}
-									echo "<tr" . $clickableString . ">\n";
-									//echo "<a href='RecordVisitor.php'>";//Ineffective
+									//echo "<br>"; //Debugging
 									
-									$items = explode(',', $line);
-									//echo "[".implode("|", $items)."] <br>";
-									$count = 0; //debug
+									$keys = "";
+									$firstLine = True;
+									$oddRow = True;
+									$classStr = "";
+									while(!feof($pointer))
+	  								{
+										$line = fgets($pointer);
+										$clickableString = "";//only populated for lines other than ther header (so that including it in the header generation just concats an empty string to it.
+										
+										if ($firstLine) { //If it's the column titles
+											$keys = $line;//save them as the keys
+											$clickableString = " class='headerRow'";//Variable name misused for kludge but it makes it dark as appropriate
+											
+										} else {//otherwise it's a data row
+											$classStr = "";
+											if ($oddRow){
+												$classStr .= " oddRow";
+											} else {
+												$classStr .= " evenRow";
+											}
+											$clickableString = " class='clickable-element".$classStr."' data-href='RecordVisitor.php?data=".urlencode($line)."&keys=".urlencode($keys)."'";//so add code to make them clickable
+											$oddRow = ! $oddRow;
+										}
+										echo "<tr" . $clickableString . ">\n";
+										//echo "<a href='RecordVisitor.php'>";//Ineffective
+																			
+										$items = explode(',', $line);
+										//echo "[".implode("|", $items)."] <br>";
+										$count = 0; //debug
+										
+										$rowString = "";
+										reset($items);
+										foreach ($items as $item) {
+											//echo "<td>" . $item ." (no. ". $count . ")</td>";
+											$rowString .= "<td>" . $item . "</td>\n";
+											$count += 1;
+										}
+										echo $rowString;
+										
+										//echo "</a>";
+										echo "</tr>\n";
+	
+										if ($firstLine) {
+											echo "</thead>";
+											$firstLine = False;//and indicate that we've processes the firstline
+										}
+	  								}
+	  								
+									fclose($pointer);
 									
-									$rowString = "";
-									reset($items);
-									foreach ($items as $item) {
-										//echo "<td>" . $item ." (no. ". $count . ")</td>";
-										$rowString .= "<td>" . $item . "</td>\n";
-										$count += 1;
-									}
-									echo $rowString;
-									
-									//echo "</a>";
-									echo "</tr>\n";
-  								}
-  								
-								fclose($pointer);
-								
-                                ?>
-                                </table>                 
+	                                ?>
+	                                </table>                 
                                 </div>
-                                <div class="col-lg-1">
+                                </div>
+                                <!-- <div class="col-lg-1">
                                 </div>
                                 <div class="col-lg-5">  
                                 
@@ -144,17 +177,17 @@
 								var theMinute = now.getMinutes();
 								if(theMinute<10) theMinute = "0" + theMinute;
 								document.write("<h1><center>" + dayNames[now.getDay()]  + "</center></h1><hr><h2><center>" + theMonth + "/" + theDate + "/" + theYear + "   " + theHour + ":" + theMinute + " " + theAMPM + "</h2></center>");
-								</SCRIPT> -->
+								</SCRIPT>
                                 
                                 
-                               	</div>
+                               	</div> -->
                             </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <button onclick="window.location.href='../Front_Desk_Check_In'" style="color:black">I'm not in this list</button>
+                    <!-- onclick="window.location.href='../Front_Desk_Check_In'" style="color:black">I'm not in this list</button> -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -181,8 +214,3 @@
 </body>
 
 </html>
-
-    Status API Training Shop Blog About 
-
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
-
