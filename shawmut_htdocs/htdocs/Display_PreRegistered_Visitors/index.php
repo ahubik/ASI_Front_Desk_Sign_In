@@ -91,9 +91,10 @@
 	                                
 	                             </div>
 	                         </div>
+	                         <br><br>
 	                         <div class="row">
-	                         	<div class="col-lg-12 center-block">
-	                                <table>
+	                         	<div class="col-lg-12 center-block container">
+	                                <table class="table" style="margin: 0 auto; font-size: 20px;"><!-- Slightly kludgey but it works -->
 	                                <thead> <!-- /thead-->
 	                                <?php 
 	                                
@@ -136,7 +137,9 @@
 										reset($items);
 										foreach ($items as $item) {
 											//echo "<td>" . $item ." (no. ". $count . ")</td>";
-											$rowString .= "<td>" . $item . "</td>\n";
+											if ($count != 0 && $count !=7 && $count !=8){//Skip the form name and, for now, image fields as they're of no interest to anyone
+												$rowString .= "<td>" . $item . "</td>\n";
+											}
 											$count += 1;
 										}
 										echo $rowString;
@@ -156,38 +159,13 @@
 	                                </table>                 
                                 </div>
                                 </div>
-                                <!-- <div class="col-lg-1">
-                                </div>
-                                <div class="col-lg-5">  
                                 
-                                
-                                <!-- <SCRIPT LANGUAGE="Javascript">
-								var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-								var monthNames = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-								var now = new Date();
-								var theYear = now.getFullYear();
-								var theMonth = (now.getMonth()+1)%12;
-								var theDay = now.getDay();
-								var theDate = now.getDate();
-								var theHour = now.getHours();
-								var theAMPM = "AM";
-								if(theHour>11) theAMPM = "PM";
-								theHour = theHour%12;
-								if(theHour==0){theHour=12;}
-								var theMinute = now.getMinutes();
-								if(theMinute<10) theMinute = "0" + theMinute;
-								document.write("<h1><center>" + dayNames[now.getDay()]  + "</center></h1><hr><h2><center>" + theMonth + "/" + theDate + "/" + theYear + "   " + theHour + ":" + theMinute + " " + theAMPM + "</h2></center>");
-								</SCRIPT>
-                                
-                                
-                               	</div> -->
                             </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <!-- onclick="window.location.href='../Front_Desk_Check_In'" style="color:black">I'm not in this list</button> -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

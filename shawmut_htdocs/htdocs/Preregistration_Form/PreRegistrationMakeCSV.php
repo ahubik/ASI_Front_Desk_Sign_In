@@ -32,12 +32,15 @@ if (file_exists($theFile)) {
 	//no need to add column headers
 	} else {
         $csvHeader="";
-        $date_Placed = FALSE;
+        $date_Placed = TRUE; //Kludge but otherwise there are two date fields
         foreach ($csv_column_names as $name) {
             if ($name == "Date") {
                 $date_Placed = TRUE;
             }
-            $csvHeader = $csvHeader . $name . ",";
+            if ($csvHeader != "") {
+            	$csvHeader .= ",";
+            }
+            $csvHeader = $csvHeader . $name;
         }
         if (!$date_Placed){//Put the Date at the end
             $csvHeader = $csvHeader . "Date";
